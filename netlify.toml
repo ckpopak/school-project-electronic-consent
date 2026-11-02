@@ -1,0 +1,19 @@
+[build]
+  base = "frontend"
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Proxies API calls to the Render-hosted Spring Boot service (same-origin for the browser).
+[[redirects]]
+  from = "/api/*"
+  to = "https://school-project-electronic-consent.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

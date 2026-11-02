@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: school-project-electronic-consent
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_CORS_ORIGINS
+        value: http://localhost:5173,https://school-project-electronic-consent.netlify.app
